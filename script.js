@@ -1,4 +1,4 @@
-var searchBtn = document.querySelector("#searchBtn")
+var searchBtn = document.querySelector("#searchBtn");
 
 function getInfo() {
     var city = document.getElementById("searchQuery").value;
