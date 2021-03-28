@@ -10,15 +10,18 @@
 </head>
 
 <body>
-    <header class="bg=dark text-light text-center p-4"></header>
+    <header class="bg=light text-dark text-center p-3">
+        <h1>Weather Dashboard</h1>
+    </header>    
     <div class="container">
-    <div class="mt-5">
+    <div class="mt-1">
         <div class="col">
             <label for="citySearch" class="search-label">Search by City:</label>
-            <input type="text" class="form-control" id="searchQuery" placeholder="San Antonio, TX">
+            <input type="text" class="form-control" id="searchQuery" placeholder="City Name">
         </div>
-        <div class="col"></div>
-            <button type="submit" class="btn btn-primary mb-3">Search</button>
+        <div class="col">
+            <button type="submit" class="btn btn-primary mb-3" id="searchBtn">Get 5-Day Forecast</button>
+            
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -27,3 +30,5 @@
     <script src="./script.js"></script>
 </body>
 </html>
+
+
