@@ -1,18 +1,41 @@
 var searchBtn = document.querySelector("#searchBtn");
 var cityForecast = [];
 
-function getInfo(event) {
-event.preventDefault();
+// API //
+var getUserCity = function(city) {
+    var apiUrl = "http://api.openweathermap.org/data/2.5/forecast" + city + ""
 
+    fetch(apiUrl).then(function(reponse) {
+        if (response.ok) {
+            response.json().then(function(data) {
+               displayForecast(data, city);
+            });
+        } else {
+            alert("Error: " + response.statusText)
+        }
+
+    })
+
+}
+
+
+var getCity = function(event) {
+event.preventDefault();
 var userCity = document.getElementById("searchQuery").value.trim;
-console.log(city)
-fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=96e27da4f61bebe5c6e5c7c18c453252`)
-.then(function(response) {
-    return response.json()
-})
-.then(function(data){
+if (userCity) {
+    getUserRepos(username);
+    repoContainerEl.textContent = "";
+    nameInputEl.value = "";
+} else {
+    alert("Please enter a valid city");
+}
+};
+
+
+
     console.log(data)
     cityForecast = data;
 })
-}
-searchBtn.addEventListener("click", getInfo)
+
+
+searchBtn.addEventListener("click", getCity)
