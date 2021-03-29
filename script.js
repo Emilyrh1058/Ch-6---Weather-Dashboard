@@ -1,4 +1,5 @@
 var searchBtn = document.querySelector("#searchBtn");
+var cityEl = document.querySelector()
 var searchFormEl = document.querySelector("#leftCol");
 var searchQueryEl = document.querySelector("#searchQuery");
 var cityForecast = [];
@@ -45,16 +46,16 @@ var getLocation = function(city) {
         })
 }
 
+// DISPLAY WEATHER //
 var getWeather = function(lat, lon) {
     var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
-    fetch(apiUrl)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            // call a function that takes in data and then displays it on the page
-            weatherForecast(data);
-        })
+    fetch(apiUrl).then(function(response) {
+        if (response.ok) {
+            return response.json().then(function(data) {
+                displayWeatherForcast(data);
+            });
+        }
+    });
 }
 
 var weatherForecast = function(data) {
