@@ -8,6 +8,8 @@ var apiKey = "b8b015eeb24126e70a9d70de8dada8aa";
     // localStorage
     // display cards 
 
+
+// SEARCH FORM HANDLER /
 var formSubmitHandler = function(event) {
     event.preventDefault();
     var cityName = cityEl.value.trim();
@@ -17,19 +19,18 @@ var formSubmitHandler = function(event) {
         alert("Please enter a valid city name.")
     }
 }
-
+ // LAST SEARCH FOR LOCAL STORAGE //
 var searchListHandler = function(event) {
     event.preventDefault();
-    var lastSearch = event.target;
-    if (lastSearch.classList.contains("last-city")) { // will link to search history el at the bottom
-        
-        // CREATE THESE BELOW // REVISIT LOCAL STORAGE INFO
-        // storage = lastCity.innerHTML.split(",")[0];
-        // getLocation(storage)
+    var lastCitySearch = event.target;
+
+    if (lastCitySearch.classList.contains("last-city")) { // will link to search history el at the bottom
+        cityStorage = lastCitySearch.innerHTML.split(",")[0];
+        getLocation(cityStorage)
     }
 }
 
-
+// API KEY AND FETCH //
 var getLocation = function(city) {
     var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey;
     fetch(apiUrl)
@@ -59,15 +60,12 @@ var getWeather = function(lat, lon) {
 var weatherForecast = function(data) {
 
 };
+
 // EVENT LISTENERS //
 //searchBtn.addEventListener("click", getLocation);
 
 searchFormEl.addEventListener("click", formSubmitHandler);
 
 
-/////
-const cityInputEl = document.querySelector("#city");
-///
-searchHistoryEl.addEventListener("click", previousSearchHandler);
-getCities();
+
 
