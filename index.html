@@ -14,13 +14,14 @@
         <h1>Weather Dashboard</h1>
     </header> 
 
-    <main class="flex-row justify-space-between">
-        <div class="col-12 col-md-4" > <!-- left side -->
-            <div class="card">
-                <h3 class="card-header text-uppercase text-center">Search By City</h3>
-                <form id="user-form" class="card-body">
-                    <input name="cityName" id="searchQuery" type="text" class="form-input"  placeholder="City Name">
+    <main class="container">
+        <div class="row" >
+            <div class="col-md-12 col-lg-3" id="leftCol">
+                <h3 class="search-header text-uppercase justify-content-center">Search By City</h3>
+                <form class ="user-form">
+                    <input name="cityName" id="searchQuery" type="text" class="col-10 form-input"  placeholder="City Name">
                     <button type="submit" class="btn btn-primary mb-3" id="searchBtn">Get 5-Day Forecast</button>
+                    <div class="dataList"></div>
                 </form>
             </div>
             <div class="col-12 col-md-8"> <!-- right side -->

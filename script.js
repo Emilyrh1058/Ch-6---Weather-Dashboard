@@ -33,9 +33,9 @@ if (userCity) {
 
 
 
-    console.log(data)
-    cityForecast = data;
-})
+console.log(data)
+cityForecast = data;
+
 
 
 searchBtn.addEventListener("click", getCity)
