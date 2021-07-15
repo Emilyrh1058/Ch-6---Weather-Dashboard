@@ -10,10 +10,10 @@ function getWeather(zipcode) {
   var weatherAPI =
     "https://api.openweathermap.org/data/2.5/weather?zip=" +
     zipcode +
-    ",us&units=imperial&appid=0444a9f6e39557fee6a4f8463a2448cd";
+    "us&units=imperial&appid=34da51962a8b053f390ea269875b7091";
 
   fetch(weatherAPI)
-    .then(function (response) {
+    .then(function(response) {
       return response.json();
     })
     .then(function (response) {
